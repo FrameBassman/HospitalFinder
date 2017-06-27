@@ -1,4 +1,7 @@
+properties([pipelineTriggers([githubPush()])])
+
 node {
+    git url: 'https://github.com/FrameBassman/HospitalFinder.git', branch: 'master'
     stage 'Checkout'
         git branch: 'dev', credentialsId: 'github-creds', url: 'https://github.com/WalletCSI/wallet.git'
     stage 'Docker cleanup'
